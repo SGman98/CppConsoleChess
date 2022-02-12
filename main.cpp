@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cstdlib>
-#include <conio.h>
 #include <cstdio>
 #include <ctime>
 
@@ -85,7 +84,7 @@ void pos_piezas()//determina la posicion inicial de las piezas en el tablero
 }
 void tablero()//pinta el tablero
 {
-    system("cls");
+    system("clear");
     if(a[0][0]==""){     //llena el arreglo del tablero y el arreglo del patron (solo se ejecuta una vez mientras el arreglo este vacio)
     for(int b=0; b<8; b++)
     {
@@ -404,7 +403,7 @@ void lectura_mov()//recibe la casilla destino
     char z;
     cout<<"Pieza seleccionada: "<<pieza<<endl;
     cout<<"Si desea otra pieza oprima la tecla borrar "<<endl;//pregunta si la seleccion de casilla es la deseada
-    if(getch()==RETROCEDER)
+    if(std::getchar()==RETROCEDER)
         lectura_pos();
     cout<<endl<<"Ingrese casilla"<<endl;
     cin>>z>>y;//recibe las coordenadas
@@ -516,7 +515,7 @@ void deshacer()//deshace la jugada realizada si es deseado
 {
     deshacer_bool=false;
     cout<<"Deshacer jugada?"<<endl;//pregunta si desea deshacer la jugada
-    if(getch()==RETROCEDER){
+    if(std::getchar()==RETROCEDER){
         for(int j=0; j<8; j++){
             for(int k=0; k<8; k++){
                 a[j][k]=copia[j][k];
@@ -527,7 +526,7 @@ void deshacer()//deshace la jugada realizada si es deseado
     }
     else{//pregunta si desea salir del juego
         cout<<"Para salir presione ESC"<<endl;
-        if(getch()==ESCAPE)
+        if(std::getchar()==ESCAPE)
             exit(0);
     }
 }
@@ -733,8 +732,7 @@ int menu()//menu introductorio
     cout<<"la misma notacion."<<endl<<endl;
     cout<<"----------------------------------------"<<endl;
     cout<<"---------------DISFRUTALO---------------"<<endl<<endl;
-    system("pause");
-    system("cls");
+    system("clear");
     cout<<"Selecione la modalidad de juego que prefiere:"<<endl<<endl;
     cout<<"          1. Ajedrez Estandar "<<endl<<endl;
     cout<<"          2. Ajedrez Horda "<<endl<<endl;
